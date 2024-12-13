@@ -75,14 +75,14 @@ class Coffe(QWidget):
         else:
             q = Dialog({})
             q.exec()
-            self.cur.execute('''SELECT * FROM Coffee''')
-            res = self.cur.fetchall()
-            self.tableWidget.setRowCount(0)
-            self.tableWidget.setRowCount(len(res)) 
-            for row_index, row_data in enumerate(res):
-                for col_index, col_data in enumerate(row_data):
-                    self.tableWidget.setItem(row_index, col_index, QTableWidgetItem(str(col_data)))
-            self.upd.clicked.connect(self.update_coffe)
+        self.cur.execute('''SELECT * FROM Coffee''')
+        res = self.cur.fetchall()
+        self.tableWidget.setRowCount(0)
+        self.tableWidget.setRowCount(len(res)) 
+        for row_index, row_data in enumerate(res):
+            for col_index, col_data in enumerate(row_data):
+                self.tableWidget.setItem(row_index, col_index, QTableWidgetItem(str(col_data)))
+        self.upd.clicked.connect(self.update_coffe)
 
 
 
